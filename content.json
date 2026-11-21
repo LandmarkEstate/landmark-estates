@@ -1,0 +1,41 @@
+{
+  "brand": "LANDMARK",
+  "brandSuffix": "ESTATES",
+  "navigation": [
+    "Home",
+    "Properties",
+    "About",
+    "Services",
+    "Contact"
+  ],
+  "tagline": "LUXURY REAL ESTATE",
+  "headline": [
+    "YOUR FUTURE",
+    "STARTS HERE."
+  ],
+  "description": "Discover exceptional properties. Experience extraordinary living.",
+  "primaryButton": "EXPLORE PROPERTIES",
+  "secondaryButton": "CONTACT US",
+  "cards": [
+    {
+      "icon": "fas fa-building",
+      "title": "Premium Properties",
+      "description": "Handpicked luxury residences and commercial spaces."
+    },
+    {
+      "icon": "fas fa-map-marker-alt",
+      "title": "Prime Locations",
+      "description": "Strategically located in high-growth urban corridors."
+    },
+    {
+      "icon": "fas fa-shield-alt",
+      "title": "Verified Developments",
+      "description": "Legally approved and fully verified projects."
+    },
+    {
+      "icon": "fas fa-chart-line",
+      "title": "Investment Opportunities",
+      "description": "High-return property investments with expert guidance."
+    }
+  ]
+}

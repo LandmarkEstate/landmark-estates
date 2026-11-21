@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover exceptional properties and experience extraordinary living with Landmark Estates.">
+  <title>LANDMARK ESTATES | Your Future Starts Here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="main-wrapper">
+    <nav class="nav">
+      <a href="#" class="logo" id="brand">LANDMARK <span class="dot"></span> ESTATES</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-icon" aria-label="Search"><i class="fas fa-search"></i></div>
+        <div class="nav-icon" aria-label="Account"><i class="fas fa-user"></i></div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-top">
+          <div class="hero-tagline"><span class="line"></span><span id="tagline">LUXURY REAL ESTATE</span></div>
+        </div>
+        <div class="hero-main">
+          <h1 class="hero-headline" id="headline">YOUR FUTURE<br><span class="light">STARTS HERE.</span></h1>
+          <p class="hero-sub" id="description">Discover exceptional properties. Experience extraordinary living.</p>
+          <div class="hero-actions">
+            <a href="#properties" class="btn btn-primary" id="primaryButton">EXPLORE PROPERTIES <i class="fas fa-arrow-right" style="font-size:0.75rem;"></i></a>
+            <a href="#contact" class="btn btn-ghost" id="secondaryButton">CONTACT US</a>
+          </div>
+        </div>
+        <div class="floating-cards" id="featureCards">
+          <div class="glass-card">
+            <div class="glass-card-icon"><i class="fas fa-building"></i></div>
+            <div class="glass-card-copy"><h3>Premium Properties</h3><p>Handpicked luxury residences and commercial spaces.</p></div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <div class="glass-card">
+            <div class="glass-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="glass-card-copy"><h3>Prime Locations</h3><p>Strategically located in high-growth urban corridors.</p></div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <div class="glass-card">
+            <div class="glass-card-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="glass-card-copy"><h3>Verified Developments</h3><p>Legally approved and fully verified projects.</p></div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <div class="glass-card">
+            <div class="glass-card-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="glass-card-copy"><h3>Investment Opportunities</h3><p>High-return property investments with expert guidance.</p></div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // The page has built-in text so it displays even when opened directly.
+    // When hosted on a web server, content.json can update the website copy.
+    fetch("content.json")
+      .then(response => {
+        if (!response.ok) throw new Error("content.json unavailable");
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById("brand").innerHTML =
+          `${data.brand} <span class="dot"></span> ${data.brandSuffix}`;
+        document.getElementById("tagline").textContent = data.tagline;
+        document.getElementById("headline").innerHTML =
+          `${data.headline[0]}<br><span class="light">${data.headline[1]}</span>`;
+        document.getElementById("description").textContent = data.description;
+        document.getElementById("primaryButton").innerHTML =
+          `${data.primaryButton} <i class="fas fa-arrow-right" style="font-size:0.75rem;"></i>`;
+        document.getElementById("secondaryButton").textContent = data.secondaryButton;
+
+        const links = data.navigation || [];
+        document.getElementById("navLinks").innerHTML = links.map((label, index) =>
+          `<li><a href="${["#", "#properties", "#about", "#services", "#contact"][index] || "#"}">${label}</a></li>`
+        ).join("");
+
+        document.getElementById("featureCards").innerHTML = data.cards.map(card => `
+          <div class="glass-card">
+            <div class="glass-card-icon"><i class="${card.icon}"></i></div>
+            <div class="glass-card-copy"><h3>${card.title}</h3><p>${card.description}</p></div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+        `).join("");
+      })
+      .catch(() => {
+        // Keep the built-in HTML content visible if fetch is blocked (file://).
+      });
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      hamburger.classList.toggle("active", isOpen);
+      hamburger.setAttribute("aria-expanded", String(isOpen));
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+
+    navLinks.addEventListener("click", event => {
+      if (event.target.closest("a")) {
+        navLinks.classList.remove("open");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+    });
+
+    const hero = document.querySelector(".hero");
+    const parallaxStyle = document.createElement("style");
+    document.head.appendChild(parallaxStyle);
+    hero.style.setProperty("--parallax-y", "0px");
+    window.addEventListener("scroll", () => {
+      hero.style.setProperty("--parallax-y", `${window.scrollY * 0.15}px`);
+    }, { passive: true });
+    parallaxStyle.textContent = ".hero::before { transform: translateY(var(--parallax-y, 0px)); }";
+  </script>
+</body>
+</html>
