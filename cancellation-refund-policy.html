@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cancellation &amp; Refund Policy of Landmark Estates covering plot booking cancellation requests, refund eligibility, charges and processing timelines.">
+<title>CANCELLATION &amp; REFUND POLICY | LANDMARK ESTATES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="ambient-glow"></div>
+<div class="main-wrapper">
+
+<nav class="nav">
+<a href="index.html" class="logo" id="brand">LANDMARK <span class="dot"></span> ESTATES</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#properties">Properties</a></li>
+<li class="has-submenu"><a href="index.html#about">About</a><ul class="submenu"><li><a href="terms.html">Terms &amp; Conditions</a></li></ul></li>
+<li><a href="index.html#services">Services</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+</ul>
+<div class="nav-right">
+<div class="nav-icon" aria-label="Search"><i class="fas fa-search"></i></div>
+<div class="nav-icon" aria-label="Account"><i class="fas fa-user"></i></div>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" type="button">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<main class="legal-panel">
+<div class="legal-inner">
+
+<div class="hero-tagline"><span class="line"></span><span>LANDMARK ESTATES</span></div>
+<h1 class="legal-title legal-title-long">CANCELLATION <span class="light">&amp; REFUND POLICY</span></h1>
+<div class="legal-meta">
+<div><strong>Effective Date:</strong> 20 November 2026</div>
+</div>
+
+<section class="legal-section" id="policy-1">
+<h2>1. Cancellation Request</h2>
+<p>Customers wishing to cancel their plot booking must submit a written cancellation request to Landmark Estates through the Company's authorised email or office, mentioning their name, project name, plot number and booking details.</p>
+</section>
+
+<section class="legal-section" id="policy-2">
+<h2>2. Refund Eligibility</h2>
+<p>Refund eligibility and applicable deductions, if any, will be determined based on the booking application, payment receipt, allotment letter, sale agreement and other applicable contractual documents, subject to applicable laws.</p>
+</section>
+
+<section class="legal-section" id="policy-3">
+<h2>3. Cancellation Charges</h2>
+<p>Any cancellation charges or deductions shall be applied only where agreed in the relevant contractual documents and legally permissible.</p>
+</section>
+
+<section class="legal-section" id="policy-4">
+<h2>4. Refund Processing Timeline</h2>
+<p>The standard refund processing period is approximately <strong>45 to 60 working days</strong> from the date of receipt and acceptance of the cancellation request, subject to verification and completion of the required formalities. Mandatory statutory timelines shall prevail.</p>
+</section>
+
+<section class="legal-section" id="policy-5">
+<h2>5. Refund Procedure</h2>
+<p>Approved refunds will generally be transferred to the original payment source or the customer's verified bank account after completion of the necessary documentation and approval procedures.</p>
+</section>
+
+<section class="legal-section" id="policy-6">
+<h2>6. Company-Related Cancellations</h2>
+<p>If a booking is cancelled due to reasons attributable to the Company, refunds and any applicable compensation shall be handled in accordance with the signed agreement and applicable laws, including RERA provisions wherever applicable.</p>
+</section>
+
+<section class="legal-section" id="policy-7">
+<h2>7. Contact Information</h2>
+<p>For cancellation and refund-related queries, please contact:</p>
+<p><strong>LANDMARK ESTATES</strong></p>
+<p>Location: Bengaluru, Karnataka, India</p>
+<p>Email: [Official Company Email]</p>
+<p>Contact: [Official Company Phone Number]</p>
+<p><strong>Note:</strong> All cancellations and refunds shall be governed by the applicable contractual documents and laws of India.</p>
+</section>
+
+<div class="legal-actions">
+<a href="index.html" class="btn btn-primary"><i class="fas fa-arrow-left" style="font-size:0.75rem;"></i> BACK TO HOME</a>
+</div>
+
+</div>
+</main>
+
+<footer class="footer">
+<div class="footer-top">
+<div class="logo footer-brand">LANDMARK <span class="dot"></span> ESTATES</div>
+<div class="footer-right">
+<ul class="footer-links">
+<li><a href="terms.html">Terms &amp; Conditions</a></li>
+<li><a href="cancellation-refund-policy.html">Cancellation &amp; Refund Policy</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://www.facebook.com/profile.php?id=61596802313785" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="Landmark Estates on Facebook (opens in a new tab)"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/landmarkestates7?avpt=MXgzdDRkdDl4Mzl2Zw==" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="Landmark Estates on Instagram (opens in a new tab)"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 Landmark Estates. All Rights Reserved.</div>
+</footer>
+</div>
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+const isOpen = navLinks.classList.toggle("open");
+hamburger.classList.toggle("active", isOpen);
+hamburger.setAttribute("aria-expanded", String(isOpen));
+document.body.style.overflow = isOpen ? "hidden" : "";
+});
+
+navLinks.addEventListener("click", event => {
+if (event.target.closest("a")) {
+navLinks.classList.remove("open");
+hamburger.classList.remove("active");
+hamburger.setAttribute("aria-expanded", "false");
+document.body.style.overflow = "";
+}
+});
+</script>
+
+</body>
+</html>
