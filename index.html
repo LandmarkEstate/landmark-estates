@@ -19,7 +19,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#">Home</a></li>
         <li><a href="#properties">Properties</a></li>
-        <li><a href="#about">About</a></li>
+        <li class="has-submenu"><a href="#about">About</a><ul class="submenu"><li><a href="terms.html">Terms &amp; Conditions</a></li></ul></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -69,9 +69,25 @@
         </div>
       </div>
     </section>
-  </div>
 
-  <script>
+<footer class="footer">
+<div class="footer-top">
+<div class="logo footer-brand">LANDMARK <span class="dot"></span> ESTATES</div>
+<div class="footer-right">
+<ul class="footer-links">
+<li><a href="terms.html">Terms &amp; Conditions</a></li>
+<li><a href="cancellation-refund-policy.html">Cancellation &amp; Refund Policy</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://www.facebook.com/profile.php?id=61596802313785" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="Landmark Estates on Facebook (opens in a new tab)"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/landmarkestates7?avpt=MXgzdDRkdDl4Mzl2Zw==" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="Landmark Estates on Instagram (opens in a new tab)"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 Landmark Estates. All Rights Reserved.</div>
+</footer>
+</div>
+<script>
     // The page has built-in text so it displays even when opened directly.
     // When hosted on a web server, content.json can update the website copy.
     fetch("content.json")
@@ -91,9 +107,11 @@
         document.getElementById("secondaryButton").textContent = data.secondaryButton;
 
         const links = data.navigation || [];
-        document.getElementById("navLinks").innerHTML = links.map((label, index) =>
-          `<li><a href="${["#", "#properties", "#about", "#services", "#contact"][index] || "#"}">${label}</a></li>`
-        ).join("");
+        const aboutSubmenu = '<ul class="submenu"><li><a href="terms.html">Terms &amp; Conditions</a></li></ul>';
+document.getElementById("navLinks").innerHTML = links.map((label, index) => {
+const link = `<a href="${["#", "#properties", "#about", "#services", "#contact"][index] || "#"}">${label}</a>`;
+return label === "About" ? `<li class="has-submenu">${link}${aboutSubmenu}</li>` : `<li>${link}</li>`;
+}).join("");
 
         document.getElementById("featureCards").innerHTML = data.cards.map(card => `
           <div class="glass-card">
